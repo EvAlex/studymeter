@@ -1,0 +1,8 @@
+<ul class="logs-list">
+    <li class="logs-list-item {{getLogLevelCssClass(log)}}"
+        *ngFor="let log of logEntries">
+        <span>{{ log.formatTime() }}> </span>
+        <span>[{{ log.formatLogLevel() }}]</span>
+        <span>{{ log.message }}</span>
+    </li>
+</ul>
