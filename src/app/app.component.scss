@@ -1,0 +1,15 @@
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    main {
+        flex: 1;
+    }
+
+    footer {
+        max-height: 30vh;
+        overflow-y: auto;
+    }
+}

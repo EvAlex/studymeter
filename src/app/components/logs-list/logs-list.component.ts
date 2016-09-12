@@ -5,7 +5,7 @@ import { LoggerService, LogEntry, LogLevel } from '../../services/logger.service
 @Component({
     selector: 'app-logs-list',
     templateUrl: './logs-list.component.html',
-    styleUrls: ['./logs-list.component.css']
+    styleUrls: ['./logs-list.component.scss']
 })
 export class LogsListComponent implements OnInit {
     logEntries: LogEntry[];

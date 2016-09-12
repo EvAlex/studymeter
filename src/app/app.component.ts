@@ -7,7 +7,7 @@ import { LogsListComponent } from './components/logs-list/logs-list.component';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
+    styleUrls: ['./app.component.scss'],
     providers: [LoggerService, ServiceWorkerService],
     directives: [LogsListComponent]
 })

@@ -1,0 +1,63 @@
+.logs-list {
+    background: white;
+    border: 1px solid #eee;
+    //border-radius: 5px;
+    list-style: none;
+    padding: 0;
+    //box-shadow: #bdbdbd 0px 0px 6px;
+    margin: 0;
+
+
+    &:before {
+        content: 'Logs';
+        color: #7b7b7b;
+        font-size: 18px;
+        display: inline-block;
+        padding: 5px 9px;
+        font-weight: bold;
+        border: 1px solid #e4e4e4;
+        border-top: none;
+        border-left: none;
+        border-bottom-right-radius: 5px;
+        box-shadow: #eee 2px 2px 5px;
+        margin-bottom: 10px;
+    }
+
+    .logs-list-item {
+        font-family: monospace;
+        padding: 4px 8px;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #eee;
+        }
+
+        &:hover {
+            background: lightyellow;
+        }
+
+        &.trace {
+            color: gray;
+        }
+
+        &.debug {
+            color: black;
+        }
+
+        &.info {
+            color: blue;
+        }
+
+        &.warn {
+            color: orange;
+        }
+
+        &.error {
+            color: red;
+        }
+
+        &.fatal {
+            color: red;
+            font-weight: bold;
+        }
+    }
+}
