@@ -9,7 +9,7 @@ import { LogsListComponent } from './components/logs-list/logs-list.component';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     providers: [LoggerService, ServiceWorkerService],
-    directives: [LogsListComponent]
+    viewProviders: [LogsListComponent]
 })
 export class AppComponent implements OnInit {
     title = 'app works!';
