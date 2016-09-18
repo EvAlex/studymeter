@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
         this.authLoading = true;
         this.af.auth.subscribe(auth => {
-            this.auth = auth.auth;
+            this.auth = auth ? auth.auth : null;
             this.authLoading = false;
         }, err => {
             this.authLoading = false;
@@ -39,5 +39,10 @@ export class AppComponent implements OnInit {
 
     public login(): void {
         this.af.auth.login();
+    }
+
+    public logout(): void {
+        this.af.auth.logout();
+        this.auth = null;
     }
 }

@@ -4,6 +4,7 @@
         <div *ngIf="auth && !authLoading">
             <img [src]="auth.photoURL" alt="">
             <span>{{ auth.displayName }}</span>
+            <button (click)="logout()">Logout</button>
         </div>
         <div *ngIf="!auth && !authLoading">
             <button (click)="login()">Login</button>
