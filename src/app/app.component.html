@@ -1,6 +1,40 @@
 <div class="layout">
     <header>
-        <h1>{{title}}</h1>
+        <nav>
+            <div class="nav-wrapper">
+                <div class="col s12">
+                    <a href="/" class="brand-logo">{{title}}</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li *ngIf="authLoading">
+                            <div class="preloader-wrapper active">
+                                <div class="spinner-layer spinner-blue-only">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li *ngIf="auth && !authLoading">
+                            <div class="row valign-wrapper">
+                                <img [src]="auth.photoURL" alt="" class="circle responsive-img avatar">
+                                <span class="display-name">{{ auth.displayName }}</span>
+                                <button (click)="logout()" class="waves-effect waves-light btn logout-btn">Logout</button>
+                            </div>
+                        </li>
+                        <li *ngIf="!auth && !authLoading">
+                            <button (click)="login()" class="waves-effect waves-light btn login-btn">Login</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--<h1>{{title}}</h1>
         <div *ngIf="auth && !authLoading">
             <img [src]="auth.photoURL" alt="" class="avatar">
             <span>{{ auth.displayName }}</span>
@@ -8,7 +42,7 @@
         </div>
         <div *ngIf="!auth && !authLoading">
             <button (click)="login()">Login</button>
-        </div>
+        </div>-->
     </header>
 
     <main>

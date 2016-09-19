@@ -5,19 +5,29 @@
     flex-direction: column;
 
     header {
-        .avatar {
-            float: left;
-            margin-top: 1em;
-            margin-right: 1em;
-            position: relative;
+        nav {
+            .nav-wrapper {
+                padding: 0 30px;
 
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            border-radius: 50%;
+                .preloader-wrapper {
+                    vertical-align: middle;
+                    margin: 0 30px;
+                }
 
-            -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
-            -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
-            box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+                .avatar {
+                    max-height: 48px;
+                }
+
+                .display-name {
+                    margin: 0px 50px 3px 10px;
+                    font-size: 18px;
+                }
+
+                .login-btn,
+                .logout-btn {
+                    margin-top: -5px;
+                }
+            }
         }
     }
 
