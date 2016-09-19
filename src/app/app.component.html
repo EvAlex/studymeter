@@ -2,7 +2,7 @@
     <header>
         <h1>{{title}}</h1>
         <div *ngIf="auth && !authLoading">
-            <img [src]="auth.photoURL" alt="">
+            <img [src]="auth.photoURL" alt="" class="avatar">
             <span>{{ auth.displayName }}</span>
             <button (click)="logout()">Logout</button>
         </div>

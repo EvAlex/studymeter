@@ -13,7 +13,7 @@ import { LogsListComponent } from './components/logs-list/logs-list.component';
     viewProviders: [LogsListComponent]
 })
 export class AppComponent implements OnInit {
-    title = 'app works!';
+    title = 'StudyMeter';
     auth: FirebaseAuthState = null;
     authLoading: boolean;
 
