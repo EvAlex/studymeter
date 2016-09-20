@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
             this.authLoading = false;
             this.logger.error('Failed to load uth state. ' + err)
         });
+
+        window['$'](".button-collapse").sideNav();
     }
 
     public login(): void {

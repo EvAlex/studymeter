@@ -9,6 +9,10 @@
             .nav-wrapper {
                 padding: 0 30px;
 
+                .side-nav.expanded {
+                    transform: translateX(0px);
+                }
+
                 .preloader-wrapper {
                     vertical-align: middle;
                     margin: 0 30px;

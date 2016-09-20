@@ -4,7 +4,15 @@
             <div class="nav-wrapper">
                 <div class="col s12">
                     <a href="/" class="brand-logo">{{title}}</a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <a class="button-collapse hide-on-large-and-up"
+                       href="javascript:void(0);"
+                       data-activates="nav-mobile">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a routerLink="/courses">Courses</a>
+                        </li>
                         <li *ngIf="authLoading">
                             <div class="preloader-wrapper active">
                                 <div class="spinner-layer spinner-blue-only">
@@ -31,22 +39,20 @@
                             <button (click)="login()" class="waves-effect waves-light btn login-btn">Login</button>
                         </li>
                     </ul>
+                    <ul id="nav-mobile"
+                        class="side-nav">
+                        <li>
+                            <a routerLink="/courses">Courses</a>
+                        </li>
+
+                    </ul>
                 </div>
             </div>
         </nav>
-        <!--<h1>{{title}}</h1>
-        <div *ngIf="auth && !authLoading">
-            <img [src]="auth.photoURL" alt="" class="avatar">
-            <span>{{ auth.displayName }}</span>
-            <button (click)="logout()">Logout</button>
-        </div>
-        <div *ngIf="!auth && !authLoading">
-            <button (click)="login()">Login</button>
-        </div>-->
     </header>
 
     <main>
-        content here
+        <router-outlet></router-outlet>
     </main>
 
     <footer>
