@@ -8,6 +8,7 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { LogsListComponent } from './components/logs-list/logs-list.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
+import { CourseFormComponent } from './components/course-form/course-form.component';
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyC6Dc7-ozf-QBUkHT57KPcEfzwskcF5xQs',
@@ -26,7 +27,8 @@ const firebaseAuthConfig = {
     declarations: [
         AppComponent,
         LogsListComponent,
-        CoursesListComponent
+        CoursesListComponent,
+        CourseFormComponent
     ],
     imports: [
         BrowserModule,

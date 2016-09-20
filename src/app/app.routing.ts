@@ -2,6 +2,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
+import { CourseFormComponent } from './components/course-form/course-form.component';
 
 const appRoutes: Routes = [
     {
@@ -12,6 +13,10 @@ const appRoutes: Routes = [
     {
         path: 'courses',
         component: CoursesListComponent
+    },
+    {
+        path: 'courses/create',
+        component: CourseFormComponent
     }
 ];
 
