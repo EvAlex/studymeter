@@ -2,12 +2,47 @@
     <form class="col s12" (ngSubmit)="onSubmit()" #courseForm="ngForm">
         <div class="row">
             <div class="input-field col s6">
-                <input id="name"
-                       class="validate"
-                       type="text"
-                       name="name"
-                       [(ngModel)]="model.name">
+                <input id="name" class="validate" type="text" name="name" [(ngModel)]="model.name">
                 <label for="name">Course Name</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3" *ngFor="let module of model.modules">
+                        <a href="javascript:void(0);" (click)="selectedModule = module">
+                            {{ module.name }}
+                        </a>
+                    </li>
+                    <li class="tab col s3 disabled">
+                        <a href="javascript:void(0);">
+                            <button type="button" class="btn waves-effect waves-light"
+                                    (click)="addModule()">
+                                <i class="material-icons left">add</i>
+                                <span>Add Module</span>
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col s12">
+                <div class="row" *ngIf="selectedModule">
+                    <div class="input-field col s6">
+                        <input id="selected-module-name"
+                               class="validate"
+                               type="text"
+                               name="selected-module-name"
+                               [(ngModel)]="selectedModule.name">
+                        <label for="name">Module Name</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+
             </div>
         </div>
 
