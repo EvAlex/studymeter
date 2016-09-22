@@ -1,4 +1,7 @@
 <div class="row">
+
+    <h2>Create Course</h2>
+
     <form class="col s12" (ngSubmit)="onSubmit()" #courseForm="ngForm">
         <div class="row">
             <div class="input-field col s6">
@@ -7,11 +10,16 @@
             </div>
         </div>
 
+        <h3>Modules</h3>
+
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3" *ngFor="let module of model.modules">
-                        <a href="javascript:void(0);" (click)="selectedModule = module">
+                    <li class="tab col s3"
+                        *ngFor="let module of model.modules">
+                        <a href="javascript:void(0);"
+                           [class.active]="module === selectedModule"
+                           (click)="selectedModule = module">
                             {{ module.name }}
                         </a>
                     </li>
@@ -27,14 +35,62 @@
                 </ul>
             </div>
             <div class="col s12">
-                <div class="row" *ngIf="selectedModule">
-                    <div class="input-field col s6">
-                        <input id="selected-module-name"
-                               class="validate"
-                               type="text"
-                               name="selected-module-name"
-                               [(ngModel)]="selectedModule.name">
-                        <label for="name">Module Name</label>
+                <div id="module-details" *ngIf="selectedModule">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="selected-module-name"
+                                class="validate"
+                                type="text"
+                                name="selected-module-name"
+                                [(ngModel)]="selectedModule.name">
+                            <label for="name">Module Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="selected-module-description"
+                                    class="materialize-textarea"
+                                    name="selected-module-description"
+                                    [(ngModel)]="selectedModule.description">
+                            </textarea>
+                            <label for="selected-module-description">Description</label>
+                        </div>
+                    </div>
+
+                    <h4>Tasks</h4>
+                    <button type="button" class="btn waves-effect waves-light"
+                            (click)="addTask(selectedModule)">
+                        <i class="material-icons left">add</i>
+                        <span>Add Task</span>
+                    </button>
+                    <div class="row">
+                        <div class="col s6">
+                            <div class="collection" *ngIf="selectedModule.tasks.length > 0">
+                                <a class="collection-item"
+                                [class.active]="task === selectedTask"
+                                *ngFor="let task of selectedModule.tasks"
+                                (click)="selectTask(task)">
+                                    {{ task.name }}
+                                    <span class="badge">{{ task.value || '' }}</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col s6" *ngIf="selectedTask">
+                            <div class="input-field">
+                                <input id="selected-task-name"
+                                       type="text"
+                                       name="selected-task-name"
+                                       [(ngModel)]="selectedTask.name">
+                                <label for="selected-task-name">Task Name</label>
+                            </div>
+                            <div class="input-field">
+                                <input id="selected-task-value"
+                                       type="number"
+                                       name="selected-task-value"
+                                       [(ngModel)]="selectedTask.value">
+                                <label for="selected-task-value">Task Value</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
