@@ -8,9 +8,27 @@
                 <input id="name" class="validate" type="text" name="name" [(ngModel)]="model.name">
                 <label for="name">Course Name</label>
             </div>
+            <div class="col s6">
+                <h4>Total Course Value: {{ model.totalValue }}</h4>
+            </div>
         </div>
 
-        <h3>Modules</h3>
+        <div class="row">
+            <div class="col s12">
+                <h3>Modules</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <button type="button"
+                        class="btn btn-sm waves-effect waves-light"
+                        (click)="addModule()">
+                    <i class="material-icons left">add</i>
+                    <span>Add Module</span>
+                </button>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col s12">
@@ -23,18 +41,11 @@
                             {{ module.name }}
                         </a>
                     </li>
-                    <li class="tab col s3 disabled">
-                        <a href="javascript:void(0);">
-                            <button type="button" class="btn waves-effect waves-light"
-                                    (click)="addModule()">
-                                <i class="material-icons left">add</i>
-                                <span>Add Module</span>
-                            </button>
-                        </a>
-                    </li>
                 </ul>
             </div>
-            <div class="col s12">
+        </div>
+        <div class="row">
+            <div class="col s10 offset-s1">
                 <div id="module-details" *ngIf="selectedModule">
                     <div class="row">
                         <div class="input-field col s6">
@@ -44,6 +55,9 @@
                                 name="selected-module-name"
                                 [(ngModel)]="selectedModule.name">
                             <label for="name">Module Name</label>
+                        </div>
+                        <div class="col s6">
+                            <h4>Total Module Value: {{ selectedModule.totalValue }}</h4>
                         </div>
                     </div>
                     <div class="row">

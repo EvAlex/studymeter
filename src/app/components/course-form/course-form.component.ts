@@ -35,6 +35,9 @@ export class CourseFormComponent implements OnInit {
         let task = new CourseModuleTask();
         task.name = `Task #${selectedModule.tasks.length + 1}`;
         selectedModule.tasks.push(task);
+        if (this.selectedTask == null) {
+            this.selectTask(task);
+        }
     }
 
     selectTask(task: CourseModuleTask): void {
