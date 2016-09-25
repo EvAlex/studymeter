@@ -2,7 +2,7 @@
 
     <h2>Create Course</h2>
 
-    <form class="col s12" (ngSubmit)="onSubmit()" #courseForm="ngForm">
+    <form class="col s12" [class.hide]="submitted" (ngSubmit)="onSubmit()" #courseForm="ngForm">
         <div class="row">
             <div class="input-field col s6">
                 <input id="name" class="validate" type="text" name="name" [(ngModel)]="model.name">
@@ -118,4 +118,59 @@
 
         <button type="submit" class="waves-effect waves-light btn" [disabled]="!courseForm.form.valid">Submit</button>
     </form>
+
+    <div class="col s12" id="submitting-banner" [class.hide]="!submitted">
+        <h3>
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <span>Submitting...</span>
+        </h3>
+    </div>
 </div>

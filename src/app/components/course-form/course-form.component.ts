@@ -13,10 +13,12 @@ export class CourseFormComponent implements OnInit {
     model: Course;
     selectedModule: CourseModule;
     selectedTask: CourseModuleTask;
+    submitted: boolean;
 
     constructor() {
         this.model = new Course();
         this.selectedModule = null;
+        this.submitted = false;
     }
 
     ngOnInit() {
@@ -43,6 +45,10 @@ export class CourseFormComponent implements OnInit {
     selectTask(task: CourseModuleTask): void {
         this.selectedTask = task;
         this.updateMaterializeUi();
+    }
+
+    onSubmit(): void {
+        this.submitted = true;
     }
 
     private updateMaterializeUi(): void {
