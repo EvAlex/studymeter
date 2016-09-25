@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AngularFire } from 'angularfire2';
 
 import { Course } from '../../models/course';
 import { CourseModule } from '../../models/course-module';
@@ -14,11 +16,13 @@ export class CourseFormComponent implements OnInit {
     selectedModule: CourseModule;
     selectedTask: CourseModuleTask;
     submitted: boolean;
+    error: string;
 
-    constructor() {
+    constructor(private router: Router, private af: AngularFire) {
         this.model = new Course();
         this.selectedModule = null;
         this.submitted = false;
+        this.error = null;
     }
 
     ngOnInit() {
@@ -49,6 +53,12 @@ export class CourseFormComponent implements OnInit {
 
     onSubmit(): void {
         this.submitted = true;
+        this.af.database.list('Courses').push(this.model)
+            .then(res => {
+                this.router.navigate(['/courses', res.key]);
+            }, err => {
+                this.error = `Failed to save course. ${err}`;
+            });
     }
 
     private updateMaterializeUi(): void {

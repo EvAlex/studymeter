@@ -5,7 +5,15 @@
     <form class="col s12" [class.hide]="submitted" (ngSubmit)="onSubmit()" #courseForm="ngForm">
         <div class="row">
             <div class="input-field col s6">
-                <input id="name" class="validate" type="text" name="name" [(ngModel)]="model.name">
+                <input id="name"
+                       class="validate"
+                       [class.valid]="name.valid || name.pristine"
+                       [class.invalid]="name.invalid || name.dirty"
+                       type="text"
+                       name="name"
+                       #name="ngModel"
+                       [(ngModel)]="model.name"
+                       required>
                 <label for="name">Course Name</label>
             </div>
             <div class="col s6">
@@ -119,7 +127,7 @@
         <button type="submit" class="waves-effect waves-light btn" [disabled]="!courseForm.form.valid">Submit</button>
     </form>
 
-    <div class="col s12" id="submitting-banner" [class.hide]="!submitted">
+    <div class="col s12" id="submitting-banner" [class.hide]="!submitted || error">
         <h3>
             <div class="preloader-wrapper big active">
                 <div class="spinner-layer spinner-blue">
@@ -172,5 +180,11 @@
             </div>
             <span>Submitting...</span>
         </h3>
+    </div>
+
+    <div class="col s12" [class.hide]="!error">
+        <div class="card-panel">
+            <h3 class="red-text text-darken-2">{{error}}</h3>
+        </div>
     </div>
 </div>
